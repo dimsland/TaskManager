@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int main() {
-    struct Task* tasks = NULL;
+    struct Task *tasks = NULL;
     int taskCount = 0;
     int choice;
 
@@ -22,19 +22,19 @@ int main() {
         switch (choice) {
             case 1:
 
-                if (tasks == NULL ){
-                    tasks = (struct Task*)malloc(taskCount * sizeof(struct Task));
-                }else{
-                    tasks = (struct Task*)realloc(tasks, taskCount * sizeof(struct Task));
+                if (tasks == NULL) {
+                    tasks = (struct Task *) malloc(taskCount * sizeof(struct Task));
+                } else {
+                    tasks = (struct Task *) realloc(tasks, taskCount * sizeof(struct Task));
                 }
                 scanTasks(tasks, &taskCount);
                 break;
             case 2:
                 deleteTasks(tasks, &taskCount);
-                if (taskCount == 0 ){
+                if (taskCount == 0) {
                     free(tasks);
-                }else{
-                    tasks = (struct Task*)realloc(tasks, taskCount * sizeof(struct Task));
+                } else {
+                    tasks = (struct Task *) realloc(tasks, taskCount * sizeof(struct Task));
                 }
                 break;
             case 3:
@@ -71,8 +71,9 @@ int main() {
                 break;
             case 0:
                 printf("Exit.\n");
-                if(tasks != 0){
-                free(tasks);}
+                if (tasks != 0) {
+                    free(tasks);
+                }
                 return 0;
             default:
                 printf("Invalid choice.\n");

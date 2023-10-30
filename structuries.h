@@ -1,9 +1,8 @@
 #ifndef STRUCTURIES_H_INCLUDED
 #define STRUCTURIES_H_INCLUDED
 
-
 typedef struct {
-int day, month, year;
+    int day, month, year;
 } Date;
 
 typedef enum {
@@ -19,7 +18,6 @@ struct Task {
     Status status;
     Date deadline;
 };
-
 
 #endif // STRUCTURIES_H_INCLUDED
 
