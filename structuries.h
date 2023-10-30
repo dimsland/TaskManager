@@ -21,5 +21,5 @@ struct Task {
 };
 
 
-
 #endif // STRUCTURIES_H_INCLUDED
+

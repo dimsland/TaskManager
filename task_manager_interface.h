@@ -12,6 +12,5 @@ void changeTasks(struct Task tasks[], int* taskCount);
 
 void changeTask(struct Task tasks[], int* taskCount);
 
-
-
 #endif // TASK_MANAGER_INTERFACE_H_INCLUDED
+

@@ -110,3 +110,4 @@ void scanTasks(struct Task tasks[], int* taskCount){
                     printf("No tasks to change status.\n");
                 }};
 
+
