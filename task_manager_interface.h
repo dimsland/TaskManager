@@ -16,8 +16,4 @@ void changeTask(Task tasks[], int taskCount);
 
 void printTaskStatus(Task tasks[], int taskCount);
 
-
-
-
-
 #endif // TASK_MANAGER_INTERFACE_H_INCLUDED
