@@ -8,43 +8,56 @@ int main() {
 
 
     while (1) {
-       menu(tasks, taskCount);
+    menu(tasks, taskCount);
+    fflush(stdin);
     scanf("%d", &choice);
 
-        switch (choice) {
+        switch (choice){
             case 1:
-
+                printf("CALLED CASE 1");
+                ++taskCount;
                 if (tasks == NULL ){
                     tasks = (Task*)malloc(taskCount * sizeof(Task));
+
                 }else{
-                    tasks = (Task*)realloc(tasks, taskCount * sizeof( Task));
+                    tasks = (Task*)realloc(tasks,taskCount * sizeof( Task));
                 }
-                scanTasks(tasks, &taskCount);
+               scanTasks(tasks, taskCount);
                 break;
+
             case 2:
-                deleteTasks(tasks,&taskCount);
+             printf("CALLED CASE 2");
+                taskCount = deleteTasks(tasks,taskCount);
+
                 if (taskCount == 0 ){
                     free(tasks);
+                    tasks = NULL;
                 }else{
                     tasks = (Task*)realloc(tasks, taskCount * sizeof(Task));
                 }
                 break;
             case 3:
-                changeTasks(tasks,&taskCount);
+             printf("CALLED CASE 3");
+                changeTasks(tasks,taskCount);
 
                 break;
             case 4:
-                changeTask(tasks, &taskCount);
+             printf("CALLED CASE 4");
+                changeTask(tasks, taskCount);
                 break;
-            case 5:
                 if (taskCount > 0) {
-                    printTasks(tasks, &taskCount);
+                    printTasks(tasks, taskCount);
                 } else {
                     printf("No tasks to display.\n");
                 }
                 break;
+            case 5:
+             printf("CALLED CASE 5");
+                printTasks(tasks, taskCount);
+                break;
             case 6:
-                printTaskStatus(tasks,&taskCount);
+             printf("CALLED CASE 6");
+                printTaskStatus(tasks,taskCount);
                 break;
             case 0:
                 printf("Exit.\n");
