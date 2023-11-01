@@ -1,8 +1,9 @@
 #ifndef STRUCTURIES_H_INCLUDED
 #define STRUCTURIES_H_INCLUDED
 
+
 typedef struct {
-    int day, month, year;
+int day, month, year;
 } Date;
 
 typedef enum {
@@ -12,12 +13,13 @@ typedef enum {
     DONE
 } Status;
 
-struct Task {
+typedef struct {
     char description[100];
     int priority;
     Status status;
     Date deadline;
-};
+} Task;
+
+
 
 #endif // STRUCTURIES_H_INCLUDED
-
