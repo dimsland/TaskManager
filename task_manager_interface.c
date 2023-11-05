@@ -1,48 +1,44 @@
 #include "task_manager_interface.h"
 #include <stdio.h>
 
+
 void menu(Task tasks[], int taskCount)
 {
     printf("-----[Menu]------\n");
-    printf("1. Add task\n");
-    printf("2. Delete task\n");
-    printf("3. Change status of task\n");
-    printf("4. Change status of tasks\n");
-    printf("5. Print all tasks\n");
-    printf("6. Print task and status\n");
-    printf("0. Exit\n");
+    printf("\033[0;31m1. Add task\033[0m\n");
+    printf("\033[0;33m2. Delete task\033[0m\n");
+    printf("\033[0;32m3. Change status of task\033[0m\n");
+    printf("\033[0;34m4. Change status of tasks\033[0m\n");
+    printf("\033[0;35m5. Print all tasks\033[0m\n");
+    printf("\033[0;36m6. Print task and status\033[0m\n");
+    printf("\033[0;31m0. Exit\033[0m\n");
     printf("Number: ");
 }
 
 void printTasks(Task tasks[], int taskCount)
 {
+
     printf("Task manager:\n");
     printf("---------------------------------------------------------\n");
-    printf("   Task |     Deadline | priority | Status \n");
+    printf("   Task            | Deadline    | Priority   | Status\n");
     printf("---------------------------------------------------------\n");
+
     for (int i = 0; i < taskCount; i++)
     {
-        printf("%8s     %d.%d.%d      %d ", tasks[i].description, tasks[i].deadline.day, tasks[i].deadline.month, tasks[i].deadline.year, tasks[i].priority);
-        if (tasks[i].status == NEW)
+
+        printf("%-20s %02d.%02d.%04d     %-10d ", tasks[i].description, tasks[i].deadline.day, tasks[i].deadline.month, tasks[i].deadline.year, tasks[i].priority);
+
+
+        const char *statusStr = "";
+        switch (tasks[i].status)
         {
-            printf("NEW\n");
+            case NEW:           statusStr = "NEW"; break;
+            case IN_PROGRESS:   statusStr = "IN_PROGRESS"; break;
+            case TESTING:       statusStr = "TESTING"; break;
+            case DONE:          statusStr = "DONE"; break;
+            default:            statusStr = "UNKNOWN"; break;
         }
-        else if (tasks[i].status == IN_PROGRESS)
-        {
-            printf("IN_PROGRESS\n");
-        }
-        else if (tasks[i].status == TESTING)
-        {
-            printf("TESTING\n");
-        }
-        else if (tasks[i].status == DONE)
-        {
-            printf("DONE\n");
-        }
-        else
-        {
-            printf("NEW\n");
-        }
+        printf("%-10s\n", statusStr);
     }
 
     printf("---------------------------------------------------------\n");
@@ -78,7 +74,7 @@ void scanTasks(Task tasks[], int taskCount)
 {
     Task newTask;
     printf("Description: ");
-    scanf(" %s", newTask.description);
+    scanf(" %[^\n]", newTask.description);
     printf("Priority (1-5): ");
     scanf("%d", &newTask.priority);
     newTask.status = 0;
@@ -105,7 +101,7 @@ void scanTasks(Task tasks[], int taskCount)
     {
         newTask.status = NEW;
     }
-    printf("Deadline: ");
+    printf("Deadline(DAY.MONTH.YEAR): ");
     scanf(" %d.%d.%d", &newTask.deadline.day, &newTask.deadline.month, &newTask.deadline.year);
     tasks[taskCount - 1] = newTask;
     printf("Task added.\n");
