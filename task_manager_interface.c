@@ -1,7 +1,6 @@
 #include "task_manager_interface.h"
 #include <stdio.h>
 
-
 void menu(Task tasks[], int taskCount)
 {
     printf("-----[Menu]------\n");
@@ -28,15 +27,24 @@ void printTasks(Task tasks[], int taskCount)
 
         printf("%-20s %02d.%02d.%04d     %-10d ", tasks[i].description, tasks[i].deadline.day, tasks[i].deadline.month, tasks[i].deadline.year, tasks[i].priority);
 
-
         const char *statusStr = "";
         switch (tasks[i].status)
         {
-            case NEW:           statusStr = "NEW"; break;
-            case IN_PROGRESS:   statusStr = "IN_PROGRESS"; break;
-            case TESTING:       statusStr = "TESTING"; break;
-            case DONE:          statusStr = "DONE"; break;
-            default:            statusStr = "UNKNOWN"; break;
+        case NEW:
+            statusStr = "NEW";
+            break;
+        case IN_PROGRESS:
+            statusStr = "IN_PROGRESS";
+            break;
+        case TESTING:
+            statusStr = "TESTING";
+            break;
+        case DONE:
+            statusStr = "DONE";
+            break;
+        default:
+            statusStr = "UNKNOWN";
+            break;
         }
         printf("%-10s\n", statusStr);
     }

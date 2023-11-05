@@ -12,7 +12,6 @@ void menu_ge(Task tasks[], int taskCount)
     printf("\033[0;36m6.Aufgabe und Status anzeigen\033[0m\n");
     printf("\033[0;31m0.Beenden\033[0m\n");
     printf("Nummer: ");
-
 }
 
 void printTasks_ge(Task tasks[], int taskCount)
@@ -87,18 +86,27 @@ void scanTasks_ge(Task tasks[], int taskCount)
     printf("Status (NEU, BEARBEITUNG, BEWERTUNG, ERLEDIGT): ");
     char state[20];
     scanf(" %s", state);
-    if (strcasecmp(state, "NEU") == 0) {
-    newTask.status = NEW;
-} else if (strcasecmp(state, "BEARBEITUNG") == 0) {
-    newTask.status = IN_PROGRESS;
-} else if (strcasecmp(state, "BEWERTUNG") == 0) {
-    newTask.status = TESTING;
-} else if (strcasecmp(state, "ERLEDIGT") == 0) {
-    newTask.status = DONE;
-} else {
-    printf("Ungültiger Status. 'NEU' wird als Standard gesetzt.\n");
-    newTask.status = NEW;
-}
+    if (strcasecmp(state, "NEU") == 0)
+    {
+        newTask.status = NEW;
+    }
+    else if (strcasecmp(state, "BEARBEITUNG") == 0)
+    {
+        newTask.status = IN_PROGRESS;
+    }
+    else if (strcasecmp(state, "BEWERTUNG") == 0)
+    {
+        newTask.status = TESTING;
+    }
+    else if (strcasecmp(state, "ERLEDIGT") == 0)
+    {
+        newTask.status = DONE;
+    }
+    else
+    {
+        printf("Ungültiger Status. 'NEU' wird als Standard gesetzt.\n");
+        newTask.status = NEW;
+    }
 
     printf("Fälligkeitsdatum(TAG.MONAT.JAHR): ");
     scanf(" %d.%d.%d", &newTask.deadline.day, &newTask.deadline.month, &newTask.deadline.year);
