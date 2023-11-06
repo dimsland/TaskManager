@@ -12,10 +12,9 @@ int main()
     int choice;
     int selectLanguage;
     int taskCount = 0;
-    int currentCapacity = 0;
     Task *tasks = NULL;
 
-    taskCount = loadTasks(&tasks, &currentCapacity, "tasks.txt");
+    tasks = loadTasks(&tasks, &taskCount, "tasks.bin");
     if (taskCount < 0)
     {
         fprintf(stderr, "Failed to load tasks or memory allocation failed\n");
@@ -113,7 +112,9 @@ int main()
                 printf("Beenden.\n");
             }
             printf("\033[0m\n");
-            saveTasks(tasks, taskCount, "tasks.txt");
+
+            saveTasks(tasks, taskCount, "tasks.bin");
+            
             if (tasks != NULL)
             {
                 free(tasks);
