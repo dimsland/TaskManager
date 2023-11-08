@@ -111,6 +111,7 @@ void scanTasks_ge(Task tasks[], int taskCount)
     printf("Fälligkeitsdatum(TAG.MONAT.JAHR): ");
     scanf(" %d.%d.%d", &newTask.deadline.day, &newTask.deadline.month, &newTask.deadline.year);
     tasks[taskCount - 1] = newTask;
+    taskCount++;
     printf("Aufgabe hinzugefügt.\n");
 }
 

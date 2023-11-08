@@ -14,9 +14,8 @@ int main()
     int taskCount = 0;
     Task *tasks = NULL;
 
-    tasks = loadTasks(&tasks, &taskCount, "tasks.bin");
-    if (taskCount < 0)
-    {
+    tasks = loadTasks(&taskCount, "tasks.bin");
+    if (taskCount < 0) {
         fprintf(stderr, "Failed to load tasks or memory allocation failed\n");
         return 1;
     }

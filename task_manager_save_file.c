@@ -48,40 +48,48 @@ void changeLanguage(int selectLanguage, FunctionPointers *fp)
     }
 }
 
-void saveTasks(Task tasks[], int taskCount, const char *filename)
-{
+Task* loadTasks(int *taskCount, const char *filename) {
+    FILE *file = fopen(filename, "rb");
+    if (file == NULL) {
+        printf("Task file not found. A new task list will be created.\n");
+        *taskCount = 0;
+        return NULL;
+    }
+
+    fseek(file, 0, SEEK_END);
+    long fileSize = ftello(file);
+    rewind(file);
+
+    *taskCount = fileSize / sizeof(Task);
+    Task *tasks = (Task*) malloc(sizeof(Task) * (*taskCount));
+    if (tasks == NULL) {
+        fprintf(stderr, "Memory allocation failed\n");
+        fclose(file);
+        *taskCount = -1; 
+        return NULL;
+    }
+    
+    size_t tasksRead = fread(tasks, sizeof(Task), *taskCount, file);
+    if (tasksRead != *taskCount) {
+        fprintf(stderr, "Error reading tasks from file.\n");
+        free(tasks);
+        *taskCount = -1; 
+        tasks = NULL;
+    }
+
+    fclose(file);
+    return tasks; 
+}
+void saveTasks(Task *tasks, int taskCount, const char *filename) {
     FILE *file = fopen(filename, "wb+");
-    if (file == NULL)
-    {
+    if (file == NULL) {
         fprintf(stderr, "Error opening file for writing\n");
         return;
     }
 
-   fwrite(tasks,sizeof(Task),taskCount, file);
+    if (fwrite(tasks, sizeof(Task), taskCount, file) != taskCount) {
+        fprintf(stderr, "Error writing to file\n");
+    }
 
     fclose(file);
-}
-
-Task* loadTasks(Task *tasks, int *taskCount, const char *filename) {
-    FILE *file = fopen(filename, "rb");
-    if (file == NULL) {
-        printf("Task file not found. A new task list will be created.\n");
-        *taskCount = 0 ;
-        return (Task*) malloc(sizeof(Task) ); ;
-    }
-    fseek(file, 0, SEEK_END);
-    long fileSize = ftello(file);
-    rewind(file); 
-    *taskCount = (fileSize / sizeof(Task))+1;
-    tasks = (Task*) malloc(sizeof(Task) * (*taskCount));
-    
-    size_t tasksRead = fread(tasks, sizeof(Task), *taskCount, file);
-    if (tasksRead != *taskCount) {
-        
-        perror("Error reading tasks from file.\n");
-        fclose(file);
-        return tasks;
-    }
-    fclose(file);
-    return tasks; 
 }
