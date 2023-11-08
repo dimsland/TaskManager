@@ -1,5 +1,6 @@
 #include "task_manager_interface_ge.h"
 #include <stdio.h>
+#include <strings.h>
 
 void menu_ge(Task tasks[], int taskCount)
 {

@@ -1,5 +1,6 @@
 #include "task_manager_interface.h"
 #include <stdio.h>
+#include <strings.h>
 
 void menu(Task tasks[], int taskCount)
 {
