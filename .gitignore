@@ -54,6 +54,7 @@ dkms.conf
 # IDE
 .idea/
 build/
+cmake-build-*/
 .vscode/
 
 # Programm
