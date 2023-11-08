@@ -1,0 +1,49 @@
+-----[Menu]------
+Add task
+Delete task
+Change status of task
+Change status of tasks
+Print all tasks
+Print task and status
+Exit
+Number
+Task manager
+---------------------------------------------------------
+  Task            | Deadline    | Priority   | Status
+---------------------------------------------------------
+NEW
+IN_PROGRESS
+TESTING
+DONE
+UNKNOWN       
+---------------------------------------------------------
+Tasks
+In progress
+Done
+No tasks to display   
+Description
+Priority (1-5)
+Status (NEW, IN_PROGRESS, TESTING, DONE)
+New
+IN_PROGRESS
+TESTING
+DONE
+NEW
+Deadline(DAY.MONTH.YEAR)
+Task added.
+Enter the index  
+Enter the index of the task to change status
+Task at index %d status changed
+Invalid index
+No tasks to change status
+Task at index %d deleted
+Invalid index
+No tasks to delete
+Enter the index of the task to change status
+Task at index status changed
+Invalid index
+No tasks to change status
+All tasks set to 'DONE'
+No tasks to change status
+
+    
