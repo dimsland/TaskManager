@@ -1,28 +1,21 @@
 #include "task_manager_interface.h"
 #include <stdio.h>
-#include <strings.h>
+#include <string.h> 
+#include "language.h"
 
-void menu(Task tasks[], int taskCount)
+void menu(Language lang ,Task tasks[], int taskCount)
 {
-    printf("-----[Menu]------\n");
-    printf("\033[0;31m1. Add task\033[0m\n");
-    printf("\033[0;33m2. Delete task\033[0m\n");
-    printf("\033[0;32m3. Change status of task\033[0m\n");
-    printf("\033[0;34m4. Change status of tasks\033[0m\n");
-    printf("\033[0;35m5. Print all tasks\033[0m\n");
-    printf("\033[0;36m6. Print task and status\033[0m\n");
-    printf("\033[0;31m0. Exit\033[0m\n");
-    printf("Number: ");
+    for (int i = 0; i < MENU_HEIGHT; i++) {
+        printf("%s", lang.menu[i]);
+    }
 }
-
-void printTasks(Task tasks[], int taskCount)
+void printTasks(Language lang ,Task tasks[], int taskCount)
 {
 
-    printf("Task manager:\n");
-    printf("---------------------------------------------------------\n");
-    printf("   Task            | Deadline    | Priority   | Status\n");
-    printf("---------------------------------------------------------\n");
-
+    printf("%s", lang.printTask[0]); // "Task manager:\n"
+    printf("%s", lang.printTask[1]); // "---------------------------------------------------------\n"
+    printf("%s", lang.printTask[2]); // "   Task            | Deadline    | Priority   | Status\n"
+    printf("%s", lang.printTask[3]); 
     for (int i = 0; i < taskCount; i++)
     {
 
@@ -50,9 +43,9 @@ void printTasks(Task tasks[], int taskCount)
         printf("%-10s\n", statusStr);
     }
 
-    printf("---------------------------------------------------------\n");
+     printf("%s", lang.printTask[4]);
 }
-void printTaskStatus(Task tasks[], int taskCount)
+void printTaskStatus(Language lang ,Task tasks[], int taskCount)
 {
     if (taskCount > 0)
     {
@@ -69,25 +62,26 @@ void printTaskStatus(Task tasks[], int taskCount)
                 doneCount++;
             }
         }
-        printf("Tasks:\n");
-        printf("In progress: %d\n", todoCount);
-        printf("Done: %d\n", doneCount);
+        printf("%s", lang.printTaskStatus[0]); // "Tasks:\n"
+        printf(lang.printTaskStatus[1], todoCount); // "In progress: %d\n"
+        printf(lang.printTaskStatus[2], doneCount); // "Done: %d\n"
     }
+
     else
     {
-        printf("No tasks to display.\n");
+        printf("%s", lang.printTaskStatus[3]); 
     }
 }
 
-void scanTasks(Task tasks[], int taskCount)
+void scanTasks(Language lang ,Task tasks[], int taskCount)
 {
     Task newTask;
-    printf("Description: ");
+    printf("%s", lang.scanTasks[0]);
     scanf(" %[^\n]", newTask.description);
-    printf("Priority (1-5): ");
+      printf("%s", lang.scanTasks[1]);
     scanf("%d", &newTask.priority);
     newTask.status = 0;
-    printf("Status (NEW, IN_PROGRESS, TESTING, DONE): ");
+     printf("%s", lang.scanTasks[2]);
     char state[20];
     scanf(" %s", state);
     if (!strcmp(state, "New"))
@@ -110,24 +104,24 @@ void scanTasks(Task tasks[], int taskCount)
     {
         newTask.status = NEW;
     }
-    printf("Deadline(DAY.MONTH.YEAR): ");
+    printf("%s", lang.scanTasks[3]);
     scanf(" %d.%d.%d", &newTask.deadline.day, &newTask.deadline.month, &newTask.deadline.year);
     tasks[taskCount - 1] = newTask;
-    printf("Task added.\n");
+    printf("%s", lang.scanTasks[4]);
 }
 
-int deleteTasks(Task tasks[], int taskCount)
+int deleteTasks(Language lang ,Task tasks[], int taskCount)
 {
     if (taskCount > 0)
     {
         int deleteIndex;
-        printTasks(tasks, taskCount);
+        printTasks(lang ,tasks, taskCount);
         printf("Enter the index");
         if (taskCount > 0)
         {
             int changeIndex;
-            printTasks(tasks, taskCount);
-            printf("Enter the index of the task to change status: ");
+            printTasks(lang ,tasks, taskCount);
+            printf("%s", lang.deleteTasks[0]);
             scanf("%d", &changeIndex);
 
             if (changeIndex >= 0 && changeIndex < taskCount)
@@ -154,7 +148,7 @@ int deleteTasks(Task tasks[], int taskCount)
                 tasks[i] = tasks[i + 1];
             }
             taskCount--;
-            printf("Task at index %d deleted.\n", deleteIndex);
+             printf(lang.deleteTasks[1], deleteIndex);
         }
         else
         {
@@ -168,23 +162,23 @@ int deleteTasks(Task tasks[], int taskCount)
     return taskCount;
 };
 
-void changeTasks(Task tasks[], int taskCount)
+void changeTasks(Language lang ,Task tasks[], int taskCount)
 {
     if (taskCount > 0)
     {
         int changeIndex;
-        printTasks(tasks, taskCount);
-        printf("Enter the index of the task to change status: ");
+        printTasks(lang ,tasks, taskCount);
+          printf("%s", lang.changeTasks[0]);
         scanf("%d", &changeIndex);
 
         if (changeIndex >= 0 && changeIndex < taskCount)
         {
             tasks[changeIndex].status = (tasks[changeIndex].status == 0) ? 1 : 0;
-            printf("Task at index %d status changed.\n", changeIndex);
+           printf(lang.changeTasks[1], changeIndex); 
         }
         else
         {
-            printf("Invalid index.\n");
+           printf("%s", lang.changeTasks[2]);
         }
     }
     else
@@ -193,7 +187,7 @@ void changeTasks(Task tasks[], int taskCount)
     }
 };
 
-void changeTask(Task tasks[], int taskCount)
+void changeTask(Language lang ,Task tasks[], int taskCount)
 {
     if (taskCount > 0)
     {
@@ -201,10 +195,10 @@ void changeTask(Task tasks[], int taskCount)
         {
             tasks[i].status = 1;
         }
-        printf("All tasks set to 'DONE'.\n");
+        printf("%s", lang.changeTask[0]);
     }
     else
     {
-        printf("No tasks to change status.\n");
+        printf("%s", lang.changeTask[1]); 
     }
 };

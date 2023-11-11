@@ -1,51 +1,35 @@
 #include <stdio.h>
+#include "language.h"
 #include "task_manager_save_file.h"
 #include "task_manager_interface.h"
-#include "task_manager_interface_ge.h"
 #include "structuries.h"
 #include <locale.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
+void changeLanguage(int selectLanguage) {
+    FILE *file;
+    char buffer[1000];
 
-void changeLanguage(int selectLanguage, FunctionPointers *fp)
-{
-    switch (selectLanguage)
-    {
-    case 1:
-        printf("\033[0;35m English language selected. \033[0m\n");
+     Language lang;
 
-        fp->menu = menu;
-        fp->printTasks = printTasks;
-        fp->scanTasks = scanTasks;
-        fp->deleteTasks = deleteTasks;
-        fp->changeTasks = changeTasks;
-        fp->changeTask = changeTask;
-        fp->printTaskStatus = printTaskStatus;
-        break;
-    case 2:
-        setlocale(LC_ALL, "de_DE.UTF-8");
-        printf(" \033[0;36m Deutsche Sprache ausgewählt.\033[0m\n");
-        fp->menu = menu_ge;
-        fp->printTasks = printTasks_ge;
-        fp->scanTasks = scanTasks_ge;
-        fp->deleteTasks = deleteTasks_ge;
-        fp->changeTasks = changeTasks_ge;
-        fp->changeTask = changeTask_ge;
-        fp->printTaskStatus = printTaskStatus_ge;
-        break;
-    default:
-        printf("\033[0;35m Invalid choice. Defaulting to English.\033[0m\n");
-        fp->menu = menu;
-        fp->printTasks = printTasks;
-        fp->scanTasks = scanTasks;
-        fp->deleteTasks = deleteTasks;
-        fp->changeTasks = changeTasks;
-        fp->changeTask = changeTask;
-        fp->printTaskStatus = printTaskStatus;
-        break;
+    switch(selectLanguage) {
+        case 1:
+            lang = select_language("/home/dmitrii/Documents/TaskManager/English.lang");
+            break;
+        case 2:
+            lang = select_language("/home/dmitrii/Documents/TaskManager/Deutsch.lang");
+            break;
+        default:
+            printf("\033[0;35m Invalid choice. Defaulting to English.\033[0m\n");
+            lang = select_language("/home/dmitrii/Documents/TaskManager/English.lang");
     }
+    while (fgets(buffer, 1000, file) != NULL) {
+        printf("%s", buffer);
+    }
+
+    fclose(file);
 }
 
 Task* loadTasks(int *taskCount, const char *filename) {

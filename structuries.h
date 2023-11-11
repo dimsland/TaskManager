@@ -22,15 +22,4 @@ typedef struct
     Date deadline;
 } Task;
 
-typedef struct FunctionPointers
-{
-    void (*menu)(Task[], int);
-    void (*printTasks)(Task[], int);
-    void (*scanTasks)(Task[], int);
-    int (*deleteTasks)(Task[], int);
-    void (*changeTasks)(Task[], int);
-    void (*changeTask)(Task[], int);
-    void (*printTaskStatus)(Task[], int);
-} FunctionPointers;
-
 #endif // STRUCTURIES_H_INCLUDED

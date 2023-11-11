@@ -7,7 +7,8 @@ add_executable(
     ${PROJECT_NAME}
     main.c
     task_manager_interface.c
-    task_manager_interface_ge.c
     task_manager_save_file.c
-    
+    language.c
+    English.lang
+    Deutsch.lang
 )

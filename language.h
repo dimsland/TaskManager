@@ -1,18 +1,23 @@
+#ifndef LANGUAGE_H
+#define LANGUAGE_H
+
+#define MENU_HEIGHT 7
+#define PRINT_TASK_HEIGHT 5
+#define SCAN_TASKS_HEIGHT 5
+#define DELETE_TASKS_HEIGHT 2
+#define CHANGE_TASKS_HEIGHT 3
+#define CHANGE_TASK_HEIGHT 2
+#define PRINT_TASK_STATUS_HEIGHT 4
+
 typedef struct
 {
-    char menu[9][80];
-    const int menu_height = 9;
-    char printTask[10][80];
-    const int printTask_height = 10;
-    char scanTasks[10][80];
-    const int scanTasks_height = 10;
-    char deleteTasks[8][80];
-    const int deleteTasks_height = 8;
-    char changeTask[4][80];
-    const int changeTasks_height = 4;
-    char changeTask[2][80];
-    const int changeTask_height = 2;
-    char printTaskStatus[4][80];
-    const int printTaskStatus_height = 4;
-
+    char menu[MENU_HEIGHT][80];
+    char scanTasks[SCAN_TASKS_HEIGHT][80];
+    char deleteTasks[DELETE_TASKS_HEIGHT][80];
+    char changeTask[CHANGE_TASK_HEIGHT][80];
+    char changeTasks[CHANGE_TASKS_HEIGHT][80];
+    char printTask[PRINT_TASK_HEIGHT][80];
+    char printTaskStatus[PRINT_TASK_STATUS_HEIGHT][80];
 } Language;
+
+#endif // LANGUAGE_H

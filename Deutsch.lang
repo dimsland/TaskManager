@@ -1,47 +1,28 @@
 -----[Menü]------
-Aufgabe hinzufügen
-Aufgabe löschen
-Status der Aufgabe ändern
-Status der Aufgaben ändern
-Alle Aufgaben drucken
-Aufgabe und Status drucken
-Beenden
-Nummer
-Aufgabenmanager
----------------------------------------------------------
-Aufgabe | Frist | Priorität | Status
----------------------------------------------------------
-NEU
-IN BEARBEITUNG
-TESTEN
-ERLEDIGT
-UNBEKANNT
----------------------------------------------------------
-Aufgaben
-In Bearbeitung
-Erledigt
-Keine Aufgaben zum Anzeigen
-Beschreibung
-Priorität (1-5)
-Status (NEU, IN BEARBEITUNG, TESTEN, ERLEDIGT)
-Neu
-IN BEARBEITUNG
-TESTEN
-ERLEDIGT
-NEU
-Frist (TAG.MONAT.JAHR)
-Aufgabe hinzugefügt.
-Geben Sie den Index ein
-Geben Sie den Index der Aufgabe ein, um den Status zu ändern
-Status der Aufgabe bei Index %d geändert
-Ungültiger Index
-Keine Aufgaben, um den Status zu ändern
-Aufgabe bei Index %d gelöscht
-Ungültiger Index
-Keine Aufgaben zu löschen
-Geben Sie den Index der Aufgabe ein, um den Status zu ändern
-Status der Aufgabe bei Index geändert
-Ungültiger Index
-Keine Aufgaben, um den Status zu ändern
-Alle Aufgaben auf 'ERLEDIGT' gesetzt
-Keine Aufgaben, um den Status zu ändern
+\033[0;31m1. Aufgabe hinzufügen\033[0m\n
+\033[0;33m2. Aufgabe löschen\033[0m\n
+\033[0;32m3. Status der Aufgabe ändern\033[0m\n
+\033[0;34m4. Status der Aufgaben ändern\033[0m\n
+\033[0;35m5. Alle Aufgaben anzeigen\033[0m\n
+\033[0;36m6. Aufgabe und Status anzeigen\033[0m\n
+Beschreibung: 
+Priorität (1-5): 
+Status (NEU, IN_ARBEIT, TESTEN, ERLEDIGT): 
+Deadline(TAG.MONAT.JAHR): 
+Aufgabe hinzugefügt.\n
+Geben Sie den Index der zu löschenden Aufgabe ein: 
+Aufgabe am Index %d gelöscht.\n
+Alle Aufgaben auf 'ERLEDIGT' gesetzt.\n
+Keine Aufgaben, um den Status zu ändern.\n
+Geben Sie den Index der Aufgabe ein, um den Status zu ändern: 
+Status der Aufgabe am Index %d geändert.\n
+Ungültiger Index.\n
+Aufgabenmanager:\n
+---------------------------------------------------------\n
+   Aufgabe          | Deadline    | Priorität   | Status\n
+---------------------------------------------------------\n
+---------------------------------------------------------\n
+Aufgaben:\n
+In Bearbeitung: %d\n
+Erledigt: %d\n
+Keine Aufgaben zum Anzeigen.\n
