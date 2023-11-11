@@ -16,14 +16,14 @@ Language changeLanguage(int selectLanguage) {
 
     switch (selectLanguage) {
         case 1:
-            lang = select_language("/home/dmitrii/Documents/TaskManager/English.lang");
+            lang = select_language("./English.lang");
             break;
         case 2:
-            lang = select_language("/home/dmitrii/Documents/TaskManager/Deutsch.lang");
+            lang = select_language("./Deutsch.lang");
             break;
         default:
             printf("\033[0;35m Invalid choice. Defaulting to English.\033[0m\n");
-            lang = select_language("/home/dmitrii/Documents/TaskManager/English.lang");
+            lang = select_language("./English.lang");
     }
     while (fgets(buffer, 1000, file) != NULL) {
         printf("%s", buffer);
