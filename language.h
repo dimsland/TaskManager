@@ -1,13 +1,13 @@
 #ifndef LANGUAGE_H
 #define LANGUAGE_H
 
-const int MENU_HEIGHT = 7;
-const int PRINT_TASK_HEIGHT = 5;
-const int SCAN_TASKS_HEIGHT = 5;
-const int DELETE_TASKS_HEIGHT = 2;
-const int CHANGE_TASKS_HEIGHT = 3;
-const int CHANGE_TASK_HEIGHT = 2;
-const int PRINT_TASK_STATUS_HEIGHT = 4;
+#define MENU_HEIGHT 7
+#define PRINT_TASK_HEIGHT 5
+#define SCAN_TASKS_HEIGHT 5
+#define DELETE_TASKS_HEIGHT 2
+#define CHANGE_TASKS_HEIGHT 3
+#define CHANGE_TASK_HEIGHT 2
+#define PRINT_TASK_STATUS_HEIGHT 4
 
 typedef struct {
     char menu[MENU_HEIGHT][80];
