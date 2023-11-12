@@ -12,9 +12,9 @@ void menu(Language lang ,Task tasks[], int taskCount)
 void printTasks(Language lang ,Task tasks[], int taskCount)
 {
 
-    printf("%s", lang.printTask[0]); // "Task manager:\n"
-    printf("%s", lang.printTask[1]); // "---------------------------------------------------------\n"
-    printf("%s", lang.printTask[2]); // "   Task            | Deadline    | Priority   | Status\n"
+    printf("%s", lang.printTask[0]); 
+    printf("%s", lang.printTask[1]); 
+    printf("%s", lang.printTask[2]);
     printf("%s", lang.printTask[3]); 
     for (int i = 0; i < taskCount; i++)
     {
@@ -62,9 +62,9 @@ void printTaskStatus(Language lang ,Task tasks[], int taskCount)
                 doneCount++;
             }
         }
-        printf("%s", lang.printTaskStatus[0]); // "Tasks:\n"
-        printf(lang.printTaskStatus[1], todoCount); // "In progress: %d\n"
-        printf(lang.printTaskStatus[2], doneCount); // "Done: %d\n"
+        printf("%s", lang.printTaskStatus[0]); 
+        printf(lang.printTaskStatus[1], todoCount); 
+        printf(lang.printTaskStatus[2], doneCount); 
     }
 
     else
