@@ -7,22 +7,22 @@
 #include <string.h>
 #include <stdlib.h>
 
-int main()
-{
+int main() {
     int choice;
     int selectLanguage;
     int taskCount = 0;
-    
+
     Task *tasks = NULL;
 
-    taskCount = loadTasks(&tasks, "tasks.txt");
+    tasks = loadTasks(&tasks, "tasks.txt");
+
     if (taskCount < 0) {
         fprintf(stderr, "Failed to load tasks or memory allocation failed\n");
         return 1;
     }
 
-    
-   changeLanguage(selectLanguage);
+
+    Language lang = changeLanguage(selectLanguage);
 
     while (1) {
         menu(lang, tasks, taskCount);
@@ -32,16 +32,16 @@ int main()
 
         switch (choice) {
             case 1:
-            printf("\033[0;31m");
+                printf("\033[0;31m");
                 ++taskCount;
                 if (tasks == NULL) {
-                    tasks = (Task *)malloc(taskCount * sizeof(Task));
+                    tasks = (Task *) malloc(taskCount * sizeof(Task));
                 } else {
-                    tasks = (Task *)realloc(tasks, taskCount * sizeof(Task));
+                    tasks = (Task *) realloc(tasks, taskCount * sizeof(Task));
                 }
                 scanTasks(lang, tasks, taskCount);
 
-           printf("\033[0m\n");
+                printf("\033[0m\n");
 
                 break;
             case 2:
@@ -51,24 +51,24 @@ int main()
                     free(tasks);
                     tasks = NULL;
                 } else {
-                    tasks = (Task *)realloc(tasks, taskCount * sizeof(Task));
+                    tasks = (Task *) realloc(tasks, taskCount * sizeof(Task));
                 }
                 printf("\033[0m\n");
                 break;
             case 3:
                 printf("\033[0;32m");
-                changeTasks(lang,tasks, taskCount);
+                changeTasks(lang, tasks, taskCount);
                 printf("\033[0m\n");
                 break;
             case 4:
                 printf("\033[0;34m");
-                changeTask(lang,tasks, taskCount);
-                 printf("\033[0m\n");
+                changeTask(lang, tasks, taskCount);
+                printf("\033[0m\n");
                 break;
             case 5:
-            printf("\033[0;35m");
+                printf("\033[0;35m");
                 if (taskCount > 0) {
-                    printTasks(lang,tasks, taskCount);
+                    printTasks(lang, tasks, taskCount);
                 } else {
                     if (selectLanguage != 2) {
                         printf("No tasks to display.\n");
@@ -80,7 +80,7 @@ int main()
                 break;
             case 6:
                 printf("\033[0;36m");
-                printTaskStatus(lang,tasks, taskCount);
+                printTaskStatus(lang, tasks, taskCount);
                 printf("\033[0m\n");
                 break;
             case 0:

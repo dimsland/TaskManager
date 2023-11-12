@@ -8,31 +8,32 @@
 #include <string.h>
 #include <stdlib.h>
 
-void changeLanguage(int selectLanguage) {
+Language changeLanguage(int selectLanguage) {
     FILE *file;
     char buffer[1000];
 
-     Language lang;
+    Language lang;
 
-    switch(selectLanguage) {
+    switch (selectLanguage) {
         case 1:
-            lang = select_language("/home/dmitrii/Documents/TaskManager/English.lang");
+            lang = select_language("./English.lang");
             break;
         case 2:
-            lang = select_language("/home/dmitrii/Documents/TaskManager/Deutsch.lang");
+            lang = select_language("./Deutsch.lang");
             break;
         default:
             printf("\033[0;35m Invalid choice. Defaulting to English.\033[0m\n");
-            lang = select_language("/home/dmitrii/Documents/TaskManager/English.lang");
+            lang = select_language("./English.lang");
     }
     while (fgets(buffer, 1000, file) != NULL) {
         printf("%s", buffer);
     }
 
     fclose(file);
+    return lang;
 }
 
-Task* loadTasks(int *taskCount, const char *filename) {
+Task *loadTasks(int *taskCount, const char *filename) {
     FILE *file = fopen(filename, "rb");
     if (file == NULL) {
         printf("Task file not found. A new task list will be created.\n");
@@ -45,25 +46,26 @@ Task* loadTasks(int *taskCount, const char *filename) {
     rewind(file);
 
     *taskCount = fileSize / sizeof(Task);
-    Task *tasks = (Task*) malloc(sizeof(Task) * (*taskCount));
+    Task *tasks = (Task *) malloc(sizeof(Task) * (*taskCount));
     if (tasks == NULL) {
         fprintf(stderr, "Memory allocation failed\n");
         fclose(file);
-        *taskCount = -1; 
+        *taskCount = -1;
         return NULL;
     }
-    
+
     size_t tasksRead = fread(tasks, sizeof(Task), *taskCount, file);
     if (tasksRead != *taskCount) {
         fprintf(stderr, "Error reading tasks from file.\n");
         free(tasks);
-        *taskCount = -1; 
+        *taskCount = -1;
         tasks = NULL;
     }
 
     fclose(file);
-    return tasks; 
+    return tasks;
 }
+
 void saveTasks(Task *tasks, int taskCount, const char *filename) {
     FILE *file = fopen(filename, "wb+");
     if (file == NULL) {

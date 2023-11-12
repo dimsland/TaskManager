@@ -9,8 +9,7 @@
 #define CHANGE_TASK_HEIGHT 2
 #define PRINT_TASK_STATUS_HEIGHT 4
 
-typedef struct
-{
+typedef struct {
     char menu[MENU_HEIGHT][80];
     char scanTasks[SCAN_TASKS_HEIGHT][80];
     char deleteTasks[DELETE_TASKS_HEIGHT][80];
@@ -19,5 +18,7 @@ typedef struct
     char printTask[PRINT_TASK_HEIGHT][80];
     char printTaskStatus[PRINT_TASK_STATUS_HEIGHT][80];
 } Language;
+
+Language select_language(const char *path);
 
 #endif // LANGUAGE_H

@@ -2,7 +2,7 @@
 #define TASK_MANAGER_SAVE_FILE_H_INCLUDED
 #include "structuries.h"
 
-void changeLanguage(int selectLanguage);
+Language changeLanguage(int selectLanguage);
 void saveTasks(Task *tasks, int taskCount, const char *filename);
 Task* loadTasks(int *taskCount, const char *filename);
 
