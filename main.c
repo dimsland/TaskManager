@@ -9,6 +9,7 @@
 
 
 int main() {
+    setlocale(LC_ALL, "");
     int choice;
     int selectLanguage;
     int taskCount = 0;
