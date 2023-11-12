@@ -7,6 +7,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+
 int main() {
     int choice;
     int selectLanguage;
@@ -14,13 +15,15 @@ int main() {
 
     Task *tasks = NULL;
 
-    tasks = loadTasks(&tasks, "tasks.txt");
+    tasks = loadTasks(&taskCount, "tasks.txt");
 
     if (taskCount < 0) {
         fprintf(stderr, "Failed to load tasks or memory allocation failed\n");
         return 1;
     }
 
+    printf("Select Language: 1 for English, 2 for Deutsch\n");
+    scanf("%d", &selectLanguage);
 
     Language lang = changeLanguage(selectLanguage);
 
@@ -30,21 +33,20 @@ int main() {
 
         scanf("%d", &choice);
 
-        switch (choice) {
-            case 1:
-                printf("\033[0;31m");
-                ++taskCount;
-                if (tasks == NULL) {
-                    tasks = (Task *) malloc(taskCount * sizeof(Task));
-                } else {
-                    tasks = (Task *) realloc(tasks, taskCount * sizeof(Task));
-                }
-                scanTasks(lang, tasks, taskCount);
-
-                printf("\033[0m\n");
-
-                break;
-            case 2:
+            switch (choice) {
+                case 1:
+                    printf("\033[0;31m");
+                    ++taskCount;
+                    if (tasks == NULL) {
+                        tasks = (Task *) malloc(taskCount * sizeof(Task));
+                    } else {
+                        tasks = (Task *) realloc(tasks, taskCount * sizeof(Task));
+                    }
+                    scanTasks(lang, tasks, taskCount);
+                    printf("\033[0m\n");
+                    
+                    break;
+                case 2:
                 printf("\033[0;33m");
                 taskCount = deleteTasks(lang, tasks, taskCount);
                 if (taskCount == 0) {
@@ -95,7 +97,7 @@ int main() {
                 if (tasks != NULL) {
                     free(tasks);
                 }
-
+                 
                 return 0;
             default:
                 printf("\033[0;31m");
@@ -108,7 +110,7 @@ int main() {
                 printf("\033[0m\n");
         }
     }
-
+     
     return 0;
 }
 

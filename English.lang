@@ -1,28 +1,28 @@
 -----[Menu]------
-\033[0;31m1. Add task\033[0m\n
-\033[0;33m2. Delete task\033[0m\n
-\033[0;32m3. Change status of task\033[0m\n
-\033[0;34m4. Change status of tasks\033[0m\n
-\033[0;35m5. Print all tasks\033[0m\n
-\033[0;36m6. Print task and status\033[0m\n
-Description: 
-Priority (1-5): 
-Status (NEW, IN_PROGRESS, TESTING, DONE): 
-Deadline(DAY.MONTH.YEAR): 
-Task added.\n
-Enter the index of the task to delete: 
-Task at index %d deleted.\n
-All tasks set to 'DONE'.\n
-No tasks to change status.\n
+1.Add task 
+2.Delete task 
+3.Change status of task 
+4.Change status of tasks 
+5.Print all tasks 
+6.Print task and status 
+Description:  
+Priority (1-5):  
+Status (NEW, IN_PROGRESS, TESTING, DONE):  
+Deadline(DAY.MONTH.YEAR):  
+Task added. 
+Enter the index of the task to delete:  
+Task at index %d deleted. 
+All tasks set to 'DONE'. 
+No tasks to change status. 
 Enter the index of the task to change status: 
-Task at index %d status changed.\n
-Invalid index.\n
-Task manager:\n
----------------------------------------------------------\n
-   Task            | Deadline    | Priority   | Status\n
----------------------------------------------------------\n
----------------------------------------------------------\n
-Tasks:\n
-In progress: %d\n
-Done: %d\n
-No tasks to display.\n
+Task at index %d status changed. 
+Invalid index. 
+Task manager: 
+--------------------------------------------------------- 
+   Task            | Deadline    | Priority   | Status 
+--------------------------------------------------------- 
+--------------------------------------------------------- 
+Tasks: 
+In progress: %d 
+Done: %d 
+No tasks to display. 

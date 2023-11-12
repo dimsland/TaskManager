@@ -1,28 +1,28 @@
------[Menü]------
-\033[0;31m1. Aufgabe hinzufügen\033[0m\n
-\033[0;33m2. Aufgabe löschen\033[0m\n
-\033[0;32m3. Status der Aufgabe ändern\033[0m\n
-\033[0;34m4. Status der Aufgaben ändern\033[0m\n
-\033[0;35m5. Alle Aufgaben anzeigen\033[0m\n
-\033[0;36m6. Aufgabe und Status anzeigen\033[0m\n
-Beschreibung: 
-Priorität (1-5): 
-Status (NEU, IN_ARBEIT, TESTEN, ERLEDIGT): 
-Deadline(TAG.MONAT.JAHR): 
-Aufgabe hinzugefügt.\n
-Geben Sie den Index der zu löschenden Aufgabe ein: 
-Aufgabe am Index %d gelöscht.\n
-Alle Aufgaben auf 'ERLEDIGT' gesetzt.\n
-Keine Aufgaben, um den Status zu ändern.\n
-Geben Sie den Index der Aufgabe ein, um den Status zu ändern: 
-Status der Aufgabe am Index %d geändert.\n
-Ungültiger Index.\n
-Aufgabenmanager:\n
----------------------------------------------------------\n
-   Aufgabe          | Deadline    | Priorität   | Status\n
----------------------------------------------------------\n
----------------------------------------------------------\n
-Aufgaben:\n
-In Bearbeitung: %d\n
-Erledigt: %d\n
-Keine Aufgaben zum Anzeigen.\n
+-----[Menü]------ 
+1.Aufgabe hinzufügen 
+2.Aufgabe löschen 
+3.Status der Aufgabe ändern 
+4.Status der Aufgaben ändern 
+5.Alle Aufgaben anzeigen 
+6.Aufgabe und Status anzeigen 
+Beschreibung:  
+Priorität (1-5):  
+Status (NEU, IN_ARBEIT, TESTEN, ERLEDIGT):  
+Deadline(TAG.MONAT.JAHR):  
+Aufgabe hinzugefügt. 
+Geben Sie den Index der zu löschenden Aufgabe ein:  
+Aufgabe am Index %d gelöscht. 
+Alle Aufgaben auf 'ERLEDIGT' gesetzt.  
+Keine Aufgaben, um den Status zu ändern. 
+Geben Sie den Index der Aufgabe ein, um den Status zu ändern:  
+Status der Aufgabe am Index %d geändert. 
+Ungültiger Index. 
+Aufgabenmanager: 
+--------------------------------------------------------- 
+   Aufgabe          | Deadline    | Priorität   | Status 
+--------------------------------------------------------- 
+--------------------------------------------------------- 
+Aufgaben: 
+In Bearbeitung: %d 
+Erledigt: %d 
+Keine Aufgaben zum Anzeigen. 

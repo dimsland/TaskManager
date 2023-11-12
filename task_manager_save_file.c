@@ -9,9 +9,6 @@
 #include <stdlib.h>
 
 Language changeLanguage(int selectLanguage) {
-    FILE *file;
-    char buffer[1000];
-
     Language lang;
 
     switch (selectLanguage) {
@@ -25,15 +22,17 @@ Language changeLanguage(int selectLanguage) {
             printf("\033[0;35m Invalid choice. Defaulting to English.\033[0m\n");
             lang = select_language("./English.lang");
     }
-    while (fgets(buffer, 1000, file) != NULL) {
-        printf("%s", buffer);
-    }
 
-    fclose(file);
     return lang;
 }
 
-Task *loadTasks(int *taskCount, const char *filename) {
+
+Task *loadTasks(int *taskCount, const char *filename){
+    if (taskCount == NULL) {
+        fprintf(stderr, "Invalid task count pointer.\n");
+        return NULL;
+    }
+
     FILE *file = fopen(filename, "rb");
     if (file == NULL) {
         printf("Task file not found. A new task list will be created.\n");
@@ -42,10 +41,23 @@ Task *loadTasks(int *taskCount, const char *filename) {
     }
 
     fseek(file, 0, SEEK_END);
-    long fileSize = ftello(file);
+    long fileSize = ftell(file); 
+    if (fileSize < 0) {
+        fprintf(stderr, "Error reading file size.\n");
+        fclose(file);
+        *taskCount = -1;
+        return NULL;
+    }
     rewind(file);
 
     *taskCount = fileSize / sizeof(Task);
+    if (fileSize % sizeof(Task) != 0) {
+        fprintf(stderr, "File size is not a multiple of task size.\n");
+        fclose(file);
+        *taskCount = -1;
+        return NULL;
+    }
+
     Task *tasks = (Task *) malloc(sizeof(Task) * (*taskCount));
     if (tasks == NULL) {
         fprintf(stderr, "Memory allocation failed\n");
@@ -58,13 +70,15 @@ Task *loadTasks(int *taskCount, const char *filename) {
     if (tasksRead != *taskCount) {
         fprintf(stderr, "Error reading tasks from file.\n");
         free(tasks);
+        fclose(file);
         *taskCount = -1;
-        tasks = NULL;
+        return NULL;
     }
 
     fclose(file);
     return tasks;
 }
+
 
 void saveTasks(Task *tasks, int taskCount, const char *filename) {
     FILE *file = fopen(filename, "wb+");

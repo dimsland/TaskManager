@@ -6,14 +6,15 @@
 void menu(Language lang, Task tasks[], int taskCount) {
     for (int i = 0; i < MENU_HEIGHT; i++) {
         printf("%s", lang.menu[i]);
+        
     }
 }
 
 void printTasks(Language lang, Task tasks[], int taskCount) {
 
     printf("%s", lang.printTask[0]); // "Task manager:\n"
-    printf("%s", lang.printTask[1]); // "---------------------------------------------------------\n"
-    printf("%s", lang.printTask[2]); // "   Task            | Deadline    | Priority   | Status\n"
+    printf("%s", lang.printTask[1]); // "---------------------------------------------------------"
+    printf("%s", lang.printTask[2]); // "   Task            | Deadline    | Priority   | Status"
     printf("%s", lang.printTask[3]);
     for (int i = 0; i < taskCount; i++) {
 
@@ -38,7 +39,7 @@ void printTasks(Language lang, Task tasks[], int taskCount) {
                 statusStr = "UNKNOWN";
                 break;
         }
-        printf("%-10s\n", statusStr);
+        printf("%-10s", statusStr);
     }
 
     printf("%s", lang.printTask[4]);
@@ -55,9 +56,9 @@ void printTaskStatus(Language lang, Task tasks[], int taskCount) {
                 doneCount++;
             }
         }
-        printf("%s", lang.printTaskStatus[0]); // "Tasks:\n"
-        printf(lang.printTaskStatus[1], todoCount); // "In progress: %d\n"
-        printf(lang.printTaskStatus[2], doneCount); // "Done: %d\n"
+        printf("%s", lang.printTaskStatus[0]); // "Tasks:"
+        printf(lang.printTaskStatus[1], todoCount); // "In progress: %d"
+        printf(lang.printTaskStatus[2], doneCount); // "Done: %d"
     } else {
         printf("%s", lang.printTaskStatus[3]);
     }
