@@ -3,6 +3,21 @@
 #include <stdlib.h>
 #include <string.h>
 #include "language.h"
+#include <string.h>
+
+MenuColors getMenuColors()
+{
+    MenuColors colors;
+    strcpy(colors.menu[0], RESET);
+    strcpy(colors.menu[1], RED);
+    strcpy(colors.menu[2], YELLOW);
+    strcpy(colors.menu[3], GREEN);
+    strcpy(colors.menu[4], BLUE);
+    strcpy(colors.menu[5], PURPLE);
+    strcpy(colors.menu[6], CYAN);
+    strcpy(colors.menu[7], RED);
+    return colors;
+}
 
 Language select_language(const char *path)
 {

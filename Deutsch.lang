@@ -22,6 +22,11 @@ Aufgabenmanager:
 --------------------------------------------------------- 
    Aufgabe          | Deadline    | Priorität   | Status 
 --------------------------------------------------------- 
+Neu
+In_Bearbeitung
+Testen
+Erledigt
+Unbekannt
 --------------------------------------------------------- 
 Aufgaben: 
 In Bearbeitung: %d 

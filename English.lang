@@ -22,8 +22,13 @@ Task manager:
 --------------------------------------------------------- 
    Task            | Deadline    | Priority   | Status 
 --------------------------------------------------------- 
+NEW
+IN_PROGRESS
+TESTING
+DONE
+UNKNOWN
 --------------------------------------------------------- 
 Tasks: 
-In progress: %d || 
+In progress: %d 
 Done: %d 
 No tasks to display. 
