@@ -39,7 +39,7 @@ void printTasks(Language lang, Task tasks[], int taskCount) {
                 statusStr = "UNKNOWN";
                 break;
         }
-        printf("%-10s", statusStr);
+        printf("%-10s\n", statusStr);
     }
 
     printf("%s\n", lang.printTask[4]);
@@ -95,23 +95,7 @@ int deleteTasks(Language lang, Task tasks[], int taskCount) {
     if (taskCount > 0) {
         int deleteIndex;
         printTasks(lang, tasks, taskCount);
-        printf("Enter the index\n");
-        if (taskCount > 0) {
-            int changeIndex;
-            printTasks(lang, tasks, taskCount);
-            printf("%s\n", lang.deleteTasks[0]);
-            scanf("%d", &changeIndex);
-
-            if (changeIndex >= 0 && changeIndex < taskCount) {
-                tasks[changeIndex].status = (tasks[changeIndex].status == 0) ? 1 : 0;
-                printf("Task at index %d status changed.\n", changeIndex);
-            } else {
-                printf("Invalid index.\n");
-            }
-        } else {
-            printf("No tasks to change status.\n");
-        }
-
+        printf("%s\n", lang.deleteTasks[0]); // "Enter the index of the task to delete:"
         scanf("%d", &deleteIndex);
 
         if (deleteIndex >= 0 && deleteIndex < taskCount) {
@@ -119,7 +103,7 @@ int deleteTasks(Language lang, Task tasks[], int taskCount) {
                 tasks[i] = tasks[i + 1];
             }
             taskCount--;
-            printf(lang.deleteTasks[1], deleteIndex);
+            printf("Task at index %d deleted.\n", deleteIndex); // Используйте printf с форматным спецификатором
         } else {
             printf("Invalid index.\n");
         }
@@ -127,7 +111,8 @@ int deleteTasks(Language lang, Task tasks[], int taskCount) {
         printf("No tasks to delete.\n");
     }
     return taskCount;
-};
+}
+
 
 void changeTasks(Language lang, Task tasks[], int taskCount) {
     if (taskCount > 0) {

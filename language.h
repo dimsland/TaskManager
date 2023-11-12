@@ -1,7 +1,7 @@
     #ifndef LANGUAGE_H
     #define LANGUAGE_H
 
-    #define MENU_HEIGHT 7
+    #define MENU_HEIGHT 8
     #define PRINT_TASK_HEIGHT 5
     #define SCAN_TASKS_HEIGHT 5
     #define DELETE_TASKS_HEIGHT 2
