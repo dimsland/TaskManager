@@ -1,35 +1,7 @@
 #include <stdio.h>
-#include "language.h"
-#include "task_manager_save_file.h"
-#include "task_manager_interface.h"
-#include "structuries.h"
-#include <locale.h>
-#include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 
-Language changeLanguage(int selectLanguage)
-{
-    Language lang;
-
-    switch (selectLanguage)
-    {
-    case 1:
-        printf(YELLOW "English language selected.\n" RESET);
-        lang = select_language("./English.lang");
-        break;
-    case 2:
-        printf(GREEN "Deutsche Sprache ausgewählt.\n" RESET);
-        lang = select_language("./Deutsch.lang");
-        break;
-    default:
-        printf(YELLOW "English language selected.\n" RESET);
-        printf("\033[0;35m Invalid choice. Defaulting to English.\033[0m\n");
-        lang = select_language("./English.lang");
-    }
-
-    return lang;
-}
+#include "file_manager.h"
 
 Task *loadTasks(int *taskCount, const char *filename)
 {

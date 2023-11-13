@@ -1,11 +1,12 @@
-#include "task_manager_interface.h"
-#include "task_manager_save_file.h"
-#include "language.h"
-#include "structuries.h"
 #include <locale.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
+#include "interface/language/language.h"
+#include "interface/task_manager_interface.h"
+#include "file_manager/file_manager.h"
+#include "structuries.h"
 
 int main()
 {
@@ -16,7 +17,7 @@ int main()
 
     Task *tasks = NULL;
 
-    tasks = loadTasks(&taskCount, "tasks.txt");
+    tasks = loadTasks(&taskCount, "./saves/tasks.save");
 
     if (taskCount < 0)
     {
@@ -118,7 +119,7 @@ int main()
                 printf("Beenden.\n");
             }
             printf("%s", colors.menu[0]);
-            saveTasks(tasks, taskCount, "tasks.txt");
+            saveTasks(tasks, taskCount, "./saves/tasks.save");
             if (tasks != NULL)
             {
                 free(tasks);

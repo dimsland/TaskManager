@@ -1,7 +1,33 @@
-#include "task_manager_interface.h"
 #include <stdio.h>
 #include <string.h>
-#include "language.h"
+
+#include "task_manager_interface.h"
+
+Language changeLanguage(int selectLanguage)
+{
+    Language lang;
+
+    const char english_path[] = "./languages/English.lang";
+    const char deutsche_path[] = "./languages/Deutsch.lang";
+
+    switch (selectLanguage)
+    {
+        case 1:
+            printf(YELLOW "English language selected.\n" RESET);
+            lang = select_language(english_path);
+            break;
+        case 2:
+            printf(GREEN "Deutsche Sprache ausgewählt.\n" RESET);
+            lang = select_language( deutsche_path);
+            break;
+        default:
+            printf(YELLOW "English language selected.\n" RESET);
+            printf(YELLOW "Invalid choice. Defaulting to English." RESET);
+            lang = select_language(english_path);
+    }
+
+    return lang;
+}
 
 void menu(Language lang, MenuColors colors, Task tasks[], int taskCount)
 {

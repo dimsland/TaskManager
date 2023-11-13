@@ -1,9 +1,9 @@
+#include <locale.h>
 #include <strings.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "language.h"
-#include <string.h>
 
 MenuColors getMenuColors()
 {

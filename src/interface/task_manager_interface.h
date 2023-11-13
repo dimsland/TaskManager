@@ -1,7 +1,9 @@
 #ifndef TASK_MANAGER_INTERFACE_H_INCLUDED
 #define TASK_MANAGER_INTERFACE_H_INCLUDED
-#include "structuries.h"
-#include "language.h"
+#include "../structuries.h"
+#include "language/language.h"
+
+Language changeLanguage(int selectLanguage);
 
 void menu(Language lang, MenuColors colors, Task task[], int taskCount);
 

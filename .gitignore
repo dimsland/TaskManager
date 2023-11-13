@@ -56,6 +56,3 @@ dkms.conf
 build/
 cmake-build-*/
 .vscode/
-
-# Programm
-tasks.txt
