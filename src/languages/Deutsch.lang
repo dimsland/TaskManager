@@ -1,0 +1,34 @@
+-----[Menü]------ 
+1.Aufgabe hinzufügen 
+2.Aufgabe löschen 
+3.Status der Aufgabe ändern 
+4.Status der Aufgaben ändern 
+5.Alle Aufgaben anzeigen 
+6.Aufgabe und Status anzeigen 
+0.Beenden.
+Beschreibung:  
+Priorität (1-5):  
+Status (NEU, IN_ARBEIT, TESTEN, ERLEDIGT):  
+Deadline(TAG.MONAT.JAHR):  
+Aufgabe hinzugefügt. 
+Geben Sie den Index der zu löschenden Aufgabe ein:  
+Aufgabe am Index %d gelöscht. 
+Alle Aufgaben auf 'ERLEDIGT' gesetzt.  
+Keine Aufgaben, um den Status zu ändern. 
+Geben Sie den Index der Aufgabe ein, um den Status zu ändern:  
+Status der Aufgabe am Index %d geändert. 
+Ungültiger Index. 
+Aufgabenmanager: 
+--------------------------------------------------------- 
+   Aufgabe          | Deadline    | Priorität   | Status 
+--------------------------------------------------------- 
+Neu
+In_Bearbeitung
+Testen
+Erledigt
+Unbekannt
+--------------------------------------------------------- 
+Aufgaben: 
+In Bearbeitung: %d 
+Erledigt: %d 
+Keine Aufgaben zum Anzeigen. 

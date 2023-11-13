@@ -1,0 +1,34 @@
+-----[Menu]------
+1.Add task
+2.Delete task 
+3.Change status of task 
+4.Change status of tasks 
+5.Print all tasks 
+6.Print task and status 
+0.Exit. 
+Description:  
+Priority (1-5):  
+Status (NEW, IN_PROGRESS, TESTING, DONE):  
+Deadline(DAY.MONTH.YEAR):  
+Task added. 
+Enter the index of the task to delete:  
+Task at index %d deleted. 
+All tasks set to 'DONE'. 
+No tasks to change status. 
+Enter the index of the task to change status: 
+Task at index %d status changed. 
+Invalid index. 
+Task manager: 
+--------------------------------------------------------- 
+   Task            | Deadline    | Priority   | Status 
+--------------------------------------------------------- 
+NEW
+IN_PROGRESS
+TESTING
+DONE
+UNKNOWN
+--------------------------------------------------------- 
+Tasks: 
+In progress: %d 
+Done: %d 
+No tasks to display. 
