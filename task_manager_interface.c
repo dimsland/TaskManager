@@ -13,7 +13,6 @@ void menu(Language lang, MenuColors colors, Task tasks[], int taskCount)
         }
         else
         {
-
             printf("Menu item or color not defined at index %d\n", i);
         }
     }
@@ -65,7 +64,7 @@ void printTaskStatus(Language lang, Task tasks[], int taskCount)
         int doneCount = 0;
         for (int i = 0; i < taskCount; i++)
         {
-            if (tasks[i].status == 0)
+            if (tasks[i].status < DONE)
             {
                 todoCount++;
             }

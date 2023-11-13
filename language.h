@@ -33,7 +33,6 @@ Language select_language(const char *path);
 
 typedef struct
 {
-
     char menu[MENU_HEIGHT][10];
 } MenuColors;
 
